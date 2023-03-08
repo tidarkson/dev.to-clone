@@ -51,3 +51,24 @@ line-height: 1.8;
 
   }
 }
+
+.name .person div {
+  width: 90%;
+  display: none;
+}
+
+.name:hover .person div{
+  display: block;
+}
+
+@media (min-width:1024px) {
+  .name .person div {
+    width: 25rem;
+  }
+}
+
+/* @media(min-width: 640px){
+  .search {
+    display: none;
+  }
+} */
