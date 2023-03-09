@@ -5,6 +5,7 @@ import { format } from 'date-fns'
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import Person from "./Person";
+import Buttons from './Buttons'
 
 export default function FetchArticles() {
 
@@ -23,7 +24,7 @@ export default function FetchArticles() {
         }
 
         FetchArticles()
-        // setIsLoading(false)
+        setIsLoading(false)
     }, [page])
 
     const handlePrevious = () => {
@@ -57,24 +58,7 @@ export default function FetchArticles() {
                     <article></article>
                 </div> :
                     <>
-
-                        <header className='max-w-100% flex items-center justify-between'>
-                            <div className='flex items-center justify-start'>
-                                <img src="./image/dev.png" alt="dev" className='w-12 mr-2' />
-                                <input type="text" placeholder='Search...' className='h-10 w-80 border-2 rounded p-2 border-slate-300 outline-indigo-700' />
-                            </div>
-                            {/* <div className='flex items-center justify-start gap-3'>
-                                <button className='login hover:bg-indigo-200 py-2 px-4 rounded-lg '>Log in</button>
-                                <button className='border border-indigo-600 hover:bg-indigo-700 text-indigo-700 hover:text-white py-2 px-4 rounded-lg'>Create account</button>
-                            </div> */}
-                        </header>
-
-                        <article className='border-t border-b border-slate-300 mb-10'>
-                            <ul className='flex items-center justify-between px-3 py-3'>
-                                <li><button className='hover:text-indigo-700' onClick={() => setPage(handlePrevious)}>&larr; Previous</button></li>
-                                <li><button className='hover:text-indigo-700' onClick={() => setPage(handleNext)}>Next &rarr;</button></li>
-                            </ul>
-                        </article>
+                        <Buttons handleNext={handleNext} handlePrevious={handlePrevious}/>
 
                         <ToastContainer position='top-right' />
 
@@ -120,16 +104,13 @@ export default function FetchArticles() {
                                     </div>
                                 </article>
                             )}
-                        </section>
-                        <article className='border-t border-b border-slate-300 mb-10'>
-                            <ul className='flex items-center justify-between px-3 py-3'>
-                                <li><button className='hover:text-indigo-700' onClick={() => setPage(handlePrevious)}>&larr; Previous</button></li>
-                                <li><button className='hover:text-indigo-700' onClick={() => setPage(handleNext)}>Next &rarr;</button></li>
-                            </ul>
-                        </article>
+                        </section>    
+
+                        <Buttons handleNext={handleNext} handlePrevious={handlePrevious}/>                  
                     </>
                 }
             </section>
         </>
     )
 }
+ 
